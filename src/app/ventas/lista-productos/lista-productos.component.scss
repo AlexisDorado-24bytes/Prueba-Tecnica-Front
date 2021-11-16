@@ -30,3 +30,16 @@ tr:hover {
   margin: 3px;
   font-size: 12px;
 }
+.disponible {
+  font-size: 10px;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  color: green;
+}
+
+.no-disponible {
+  font-size: 10px;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  color: red;
+}

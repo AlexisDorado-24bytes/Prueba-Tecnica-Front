@@ -33,12 +33,24 @@
             </p>
           </div>
 
-          <img src="../../../assets/imgs/casio.png" class="reloj" alt="..." />
           <div class="card-body">
+            <img src="assets/imgs/casio.png" class="reloj" alt="..." />
+
             <p class="titulo-producto mb-0">{{ producto.nombre }}</p>
             <p class="descripcion-producto" style="font-style: italic">
               {{ producto.descripcion | slice: 0:20 }}
             </p>
+            <div
+              class="d-flex justify-content-end"
+              *ngIf="producto.stock > 0; else noDisponoble"
+            >
+              <p class="disponible">Disponible: {{ producto.stock }}</p>
+            </div>
+            <ng-template #noDisponoble>
+              <div class="d-flex justify-content-end">
+                <p class="no-disponible">Sin Unidades</p>
+              </div>
+            </ng-template>
           </div>
         </div>
       </div>

@@ -20,6 +20,7 @@ import { DetalleFacturaProducto } from '../interfaces/detalleproducto.interface'
 })
 export class ListaProductosComponent implements OnInit {
   public productosLista: ProductoGetAllProductos[] = [];
+  public productosListaCompeta: ProductoGetAllProductos[] = [];
 
   validarClienteSeleccionado(idProducto: string) {
     var cliente = localStorage.getItem('ClienteSeleccionado');
@@ -175,8 +176,10 @@ export class ListaProductosComponent implements OnInit {
   }
 
   enviar(pro: ProductoGetAllProductos) {
-    this.validarClienteSeleccionado(pro.productoId);
-    this.validarStock(pro.stock);
+    var disponible = this.validarStock(pro.stock);
+    if (disponible) {
+      this.validarClienteSeleccionado(pro.productoId);
+    }
   }
   validarStock(stock: number) {
     if (stock < 1) {
@@ -196,7 +199,11 @@ export class ListaProductosComponent implements OnInit {
         icon: 'error',
         title: 'El producto no tiene unidades disponibles.',
       });
+
+      return false;
     }
+
+    return true;
   }
 
   emitirListaProductos(listaProductos: ProductoGetAllProductos[]) {
