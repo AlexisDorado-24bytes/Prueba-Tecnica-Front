@@ -1,4 +1,52 @@
 <div class="card">
+  <div class="card-header">Inventario Disponible</div>
+  <div class="card-body">
+    <p class="card-title">Lista de Relojes</p>
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm"
+        ><i class="bi bi-cart-check-fill"></i
+      ></span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Escribe Nombre del producto"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-sm"
+        #inputBuscarProducto
+        (keyup)="inputBuscar(inputBuscarProducto.value)"
+      />
+    </div>
+    <div class="row">
+      <div
+        class="col-md-3 producto"
+        *ngFor="let producto of productosLista; let n = index"
+        (click)="enviar(producto)"
+      >
+        <div
+          class="card card-producto"
+          style="margin-bottom: 10px"
+          title="{{ producto.descripcion }}"
+        >
+          <div class="d-flex justify-content-end">
+            <p class="precio">
+              {{ producto.precioVentaCliente | currency: "COP" }}
+            </p>
+          </div>
+
+          <img src="../../../assets/imgs/casio.png" class="reloj" alt="..." />
+          <div class="card-body">
+            <p class="titulo-producto mb-0">{{ producto.nombre }}</p>
+            <p class="descripcion-producto" style="font-style: italic">
+              {{ producto.descripcion | slice: 0:20 }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="card">
   <div class="card-header">Relojería</div>
   <div class="card-body">
     <p class="card-title">Lista de Relojes</p>
@@ -42,4 +90,4 @@
       </tbody>
     </table>
   </div>
-</div>
+</div> -->
