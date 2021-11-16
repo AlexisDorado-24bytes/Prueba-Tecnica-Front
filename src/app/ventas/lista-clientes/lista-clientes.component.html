@@ -1,0 +1,36 @@
+<div class="input-group input-group-sm mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-sm"
+    ><i class="bi bi-person-bounding-box"></i
+  ></span>
+  <input
+    type="number"
+    class="form-control"
+    placeholder="Escribe la Cédula del Cliente"
+    aria-label="Sizing example input"
+    aria-describedby="inputGroup-sizing-sm"
+    #inputBuscarCliente
+    (keyup)="inputBuscar(inputBuscarCliente.value)"
+  />
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre Completo</th>
+      <th scope="col">Cedula</th>
+      <th scope="col">UUID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let cliente of clientes; let n = index"
+      (click)="guardarCliente(cliente)"
+    >
+      <th scope="row">{{ n + 1 }}</th>
+      <td>{{ cliente.nombre + " " + cliente.apellido }}</td>
+      <td>{{ cliente.cedulaCliente }}</td>
+      <td>{{ cliente.clienteId }}</td>
+    </tr>
+  </tbody>
+</table>

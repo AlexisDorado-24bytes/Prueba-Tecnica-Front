@@ -1,0 +1,30 @@
+.margin-pegado {
+  margin-top: -20px;
+  margin-bottom: 15 px;
+  font-weight: 100;
+}
+#eliminarMovimiento {
+  color: red;
+}
+#eliminarMovimiento:hover {
+  cursor: pointer;
+}
+#cerrarVentana {
+  font-size: 25px;
+  color: red;
+  cursor: pointer;
+}
+.cerrarVentana {
+  text-align: end;
+}
+.totales {
+  text-align: end;
+  margin-top: 20px;
+}
+.subtotal {
+  text-align: end;
+  margin-left: 20px;
+}
+.boton-pagar {
+  margin-top: 40px;
+}

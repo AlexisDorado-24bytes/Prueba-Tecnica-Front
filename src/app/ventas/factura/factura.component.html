@@ -1,0 +1,104 @@
+<div>
+  <p class="cerrarVentana">
+    <i
+      (click)="cambiarCliente()"
+      title="Cambiar Cliente"
+      id="cerrarVentana"
+      class="bi bi-x-square"
+    ></i>
+  </p>
+  <div>
+    <h3>Factura</h3>
+  </div>
+
+  <div class="col-md-12">
+    <div class="row">
+      <h6 class="">DATOS CLIENTE</h6>
+      <div class="col-md-5 datos-cliente">
+        <p>Nombre Completo</p>
+        <div class="margin-pegado">
+          <span>{{
+            clienteSeleccionado.nombre + " " + clienteSeleccionado.apellido
+          }}</span>
+        </div>
+        <p>Teléfono</p>
+        <div class="margin-pegado">
+          <span>{{ clienteSeleccionado.telefono }}</span>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <p>Cedula de Ciudadanía</p>
+        <div class="margin-pegado">
+          <span>{{ clienteSeleccionado.cedulaCliente }}</span>
+        </div>
+        <p>Direccion</p>
+        <div class="margin-pegado">
+          <span>{{ clienteSeleccionado.direccion }}</span>
+        </div>
+      </div>
+
+      <hr style="margin-top: 20 px" />
+
+      <h6 class="text-center">PRODUCTOS SELECCIONADOS</h6>
+
+      <table class="table" style="margin-top: 30px">
+        <thead>
+          <tr style="font-size: 10px">
+            <td></td>
+            <td>Codigo Producto</td>
+            <td>Nombre</td>
+            <td>Valor Unitario</td>
+            <td>Cantidad</td>
+            <td>Valor Total</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movimiento of listaMovimientos">
+            <td (click)="eliminarTransaccion(movimiento)">
+              <i id="eliminarMovimiento" class="bi bi-x-square"></i>
+            </td>
+            <td style="font-size: 10px">{{ movimiento.productoId }}</td>
+            <td style="font-size: 10px">{{ movimiento.producto.nombre }}</td>
+            <td style="font-size: 10px">{{ movimiento.valorUnitario }}</td>
+            <td style="font-size: 10px">{{ movimiento.cantidad }}</td>
+            <td style="font-size: 10px">{{ movimiento.valorTotal }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h6 class="text-center">Totales</h6>
+
+      <div class="row">
+        <div class="col-md-8">
+          <p style="text-align: end"><span> Total Producto</span>s</p>
+          <p style="text-align: end; margin-top: -16px">
+            <span>Subtotal</span>
+          </p>
+        </div>
+
+        <div class="col-md-4">
+          <p style="text-align: end">{{ cantidadTotal }}</p>
+          <p style="text-align: end; margin-top: -16px">
+            {{ valorUnitarioFactura }}
+          </p>
+        </div>
+      </div>
+
+      <h6 class="text-center" style="border: 2px solid grey">
+        TOTAL A PAGAR:
+        <span style="margin-left: 10px">{{ monedaConvertida }}</span>
+      </h6>
+
+      <button
+        (click)="pagar()"
+        title="Pagar"
+        class="btn btn-success boton-pagar"
+      >
+        <i
+          style="font-size: 30px; color: rgb(255, 255, 255)"
+          class="bi bi-cash-coin"
+        ></i>
+      </button>
+    </div>
+  </div>
+</div>

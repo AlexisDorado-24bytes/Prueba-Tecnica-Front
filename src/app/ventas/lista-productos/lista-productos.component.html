@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header">Relojería</div>
+  <div class="card-body">
+    <p class="card-title">Lista de Relojes</p>
+
+    <div class="input-group input-group-sm mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-sm"
+        ><i class="bi bi-cart-check-fill"></i
+      ></span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Escribe Nombre del producto"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-sm"
+        #inputBuscarProducto
+        (keyup)="inputBuscar(inputBuscarProducto.value)"
+      />
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let producto of productosLista; let n = index"
+          (click)="enviar(producto)"
+        >
+          <th *ngIf="producto.stock > 0" scope="row">{{ n + 1 }}</th>
+          <td *ngIf="producto.stock > 0">{{ producto.nombre }}</td>
+          <td *ngIf="producto.stock > 0">{{ producto.descripcion }}</td>
+          <td *ngIf="producto.stock > 0">{{ producto.precioVentaCliente }}</td>
+          <td *ngIf="producto.stock > 0">{{ producto.stock }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

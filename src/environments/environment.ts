@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base: 'https://webapi20211115034022.azurewebsites.net/api/v1/',
+  productosTodos: 'producto',
+  clientesBuscar: 'Cliente?CeludaDeCiudadania=',
+  clientesTodos: 'Cliente',
+  facturaInicial: 'Factura',
+  facturaDetalle: 'VentaDetalle',
+  buscarProdcutoNombre: 'Producto?Nombre=',
+  consultarFacturaDetalle: 'VentaDetalle?CodigoUnicoDeFactura=',
 };
 
 /*

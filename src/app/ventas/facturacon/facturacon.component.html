@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">Factura</div>
+  <div class="card-body">
+    <div *ngIf="cliente; else noCLiente">
+      <app-factura (estadoClienteSeleccionado)="cliente = $event"></app-factura>
+    </div>
+    <ng-template #noCLiente>
+      <div>
+        <p class="card-title">Debes seleccionar un cliente</p>
+        <app-lista-clientes
+          (estadoClienteSeleccionado)="cliente = $event"
+        ></app-lista-clientes>
+      </div>
+    </ng-template>
+  </div>
+</div>
